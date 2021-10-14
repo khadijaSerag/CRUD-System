@@ -1,0 +1,44 @@
+<form [formGroup]="updateForm" (ngSubmit)="editForm(updateForm)" class="pt-5 w-75 m-auto">
+
+    <!-- the error -->
+    <div *ngIf="error" class="alert alert-danger d-flex justify-content-center align-items-center text-center">
+        {{error}};
+    </div>
+    <!-- ......... -->
+
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col-md-2 ml-auto">
+                <a class=" w-100 btn btn-dark" routerLink ="/list">Display List</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <label>nationalityNameAr: </label>
+    <input formControlName="nationalityNameAr" type="text" class="form-control mb-3">
+    <div class="alert border border-danger"
+        *ngIf="updateForm.controls.nationalityNameAr.errors && updateForm.controls.nationalityNameAr.touched ">
+        <p *ngIf="updateForm.controls.nationalityNameAr.errors.required "> Name is required</p>
+    </div>
+
+
+    <label>nationalityNameEn: </label>
+    <input formControlName="nationalityNameEn" type="text" class="form-control mb-3">
+    <div class="alert border border-danger"
+        *ngIf="updateForm.controls.nationalityNameEn.errors && updateForm.controls.nationalityNameEn.touched ">
+        <p *ngIf="updateForm.controls.nationalityNameEn.errors.required "> Name is required</p>
+    </div>
+
+
+
+
+
+
+    <div class="d-flex justify-content-center my-5">
+        <button  type="submit" class="btn btn-info w-25 py-2 font-weight-bolder" [disabled]="updateForm.invalid"> Update</button>
+    </div>
+
+</form>
+
